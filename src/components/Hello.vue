@@ -1,6 +1,9 @@
 <template>
 <div class="hello">
   <h1>{{ msg }}</h1>
+  <div class="test">
+      <a href="#/">点我</a>
+  </div>
 </div>
 </template>
 
@@ -16,7 +19,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="less">
 h1,
 h2 {
   font-weight: normal;
@@ -32,7 +35,11 @@ li {
   margin: 0 10px;
 }
 
-a {
-  color: #42b983;
+.test {
+    font-size: 28px;
+
+    a {
+      color: #42b983;
+    }
 }
 </style>
