@@ -208,6 +208,7 @@ export default {
             .breadcrumb-container {
                 padding-bottom: 14px;
                 border-bottom: 1px solid #eaeefb;
+                margin-bottom: 14px;
                 .title {
                     width: 200px;
                     float: left;

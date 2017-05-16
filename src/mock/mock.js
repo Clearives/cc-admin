@@ -2,7 +2,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { LoginUsers, Users } from './data/login';
 
-
+let _Users = Users;
 export default {
   bootstrap() {
     let mock = new MockAdapter(axios);
@@ -16,7 +16,7 @@ export default {
       msg: 'failure'
     });
 
-    //登录
+    //login
     mock.onPost('/login').reply(config => {
       let {username, password} = JSON.parse(config.data);
       return new Promise((resolve, reject) => {
@@ -35,6 +35,22 @@ export default {
           } else {
             resolve([200, { code: 500, msg: 'username password error' }]);
           }
+        }, 500);
+      });
+    });
+
+    //table demo
+    mock.onGet('/user/list').reply(config => {
+      let {name} = config.params;
+      let mockUsers = _Users.filter(user => {
+        if (name && user.name.indexOf(name) == -1) return false;
+        return true;
+      });
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve([200, {
+            users: mockUsers
+          }]);
         }, 1000);
       });
     });

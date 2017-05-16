@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Login from '@/pages/Login';
 import Hello from '@/components/Hello';
 import Home from '@/pages/Home';
+import Table from '@/pages/components/Table';
 
 Vue.use(Router);
 export default new Router({
@@ -20,7 +21,7 @@ export default new Router({
       children: [
         {
           path: '/table',
-          component: Hello,
+          component: Table,
           name: 'Table'
         }, {
           path: '/form',

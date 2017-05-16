@@ -8,7 +8,7 @@
       <el-input type="password" v-model="ruleForm.checkPass" auto-complete="off" placeholder="password"></el-input>
     </el-form-item>
     <el-checkbox v-model="checked" checked class="remember">Remember</el-checkbox>
-    <el-form-item style="width:100%;">
+    <el-form-item style="width:100%; text-align: center;">
       <el-button type="primary" @click="handleSubmit" :loading="logining">Login</el-button>
       <el-button @click="handleReset">Reset</el-button>
     </el-form-item>
@@ -28,10 +28,10 @@
         },
         rules: {
           account: [
-            { required: true, message: 'Please input username', trigger: 'blur' },
+            { required: true, message: 'Please enter username', trigger: 'blur' },
           ],
           checkPass: [
-            { required: true, message: 'Please input password', trigger: 'blur' },
+            { required: true, message: 'Please enter password', trigger: 'blur' },
           ]
         },
         checked: true
@@ -45,17 +45,19 @@
         var _this = this;
         _this.$refs.ruleForm.validate((valid) => {
           if (valid) {
+            _this.logining = true;
             var loginParams = { username: _this.ruleForm.account, password: _this.ruleForm.checkPass };
             reqLogin(loginParams).then(data => {
+              _this.logining = false;
               let { msg, code, user } = data;
               if (code !== 200) {
-                this.$message({
+                _this.$message({
                   message: msg,
                   type: 'error'
                 });
               } else {
                 sessionStorage.setItem('user', JSON.stringify(user));
-                this.$router.push({ path: '/table' });
+                _this.$router.push({ path: '/table' });
               }
             })
 
