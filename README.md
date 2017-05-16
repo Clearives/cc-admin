@@ -1,6 +1,7 @@
 # cc-admin
 
-> A Vue.js project
+> A Vue.js project [演示Demo](http://clearives.cc/project/cc-admin/index.html?mock)
+
 
 ## Build Setup
 
