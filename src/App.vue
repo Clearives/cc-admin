@@ -13,12 +13,27 @@ export default {
 </script>
 
 <style>
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  position: absolute;
+	top: 0px;
+	bottom: 0px;
+	width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+.fade-enter-active,
+.fade-leave-active {
+	transition: all .2s ease;
+}
+.fade-enter,
+.fade-leave-active {
+	opacity: 0;
 }
 </style>
