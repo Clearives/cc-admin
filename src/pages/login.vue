@@ -16,6 +16,8 @@
 </template>
 
 <script>
+  import { reqLogin } from '../api/api';
+
   export default {
     data() {
       return {
@@ -43,9 +45,20 @@
         var _this = this;
         _this.$refs.ruleForm.validate((valid) => {
           if (valid) {
-            sessionStorage.setItem('user', JSON.stringify(_this.ruleForm.account));
-            _this.$router.replace('/');
-            this.logining = true;
+            var loginParams = { username: _this.ruleForm.account, password: _this.ruleForm.checkPass };
+            reqLogin(loginParams).then(data => {
+              let { msg, code, user } = data;
+              if (code !== 200) {
+                this.$message({
+                  message: msg,
+                  type: 'error'
+                });
+              } else {
+                sessionStorage.setItem('user', JSON.stringify(user));
+                this.$router.push({ path: '/table' });
+              }
+            })
+
           } else {
             console.log('error submit!!');
             return false;

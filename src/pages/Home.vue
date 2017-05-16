@@ -99,7 +99,7 @@ export default {
     var user = sessionStorage.getItem('user');
     if (user) {
       user = JSON.parse(user);
-      this.ccUserName = user || '';
+      this.ccUserName = user.username || '';
       this.ccUserAvatar = user.avatar || '';
     }
   }
