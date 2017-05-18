@@ -1,18 +1,9 @@
 
 export const state = {
-  count: 10,
   todos: []
 }
 
 export const mutations = {
-    increment(state) {
-        state.count++
-    },
-
-    decrement(state) {
-        state.count--
-    },
-
     addTodo (state, { text }) {
       state.todos.push({
         text,

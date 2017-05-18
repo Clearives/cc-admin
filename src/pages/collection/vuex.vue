@@ -21,7 +21,7 @@ export default {
   components: { TodoMvc },
   computed: {
     ...mapGetters([
-      'getCount'
+      'getCount',
       // ...
     ])
   },
