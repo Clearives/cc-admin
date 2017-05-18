@@ -4,6 +4,7 @@ import Login from '@/pages/Login';
 import Hello from '@/components/Hello';
 import Home from '@/pages/Home';
 import Table from '@/pages/components/Table';
+import Vuex from '@/pages/collection/Vuex';
 
 Vue.use(Router);
 export default new Router({
@@ -36,9 +37,9 @@ export default new Router({
       iconCls: 'el-icon-star-on',
       children: [
         {
-          path: '/table1',
-          component: Hello,
-          name: 'Table'
+          path: '/vuex',
+          component: Vuex,
+          name: 'Vuex'
         }, {
           path: '/form1',
           component: Hello,

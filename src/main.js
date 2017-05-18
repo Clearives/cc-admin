@@ -1,7 +1,9 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
+import Vuex from 'vuex';
 import axios from 'axios'
+import store from './store/index.js'
 import App from './App';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
@@ -14,6 +16,7 @@ useMock && Mock.bootstrap();
 
 Vue.config.productionTip = false;
 
+Vue.use(Vuex)
 Vue.use(ElementUI)
 router.beforeEach((to, from, next) => {
   if (to.path == '/login') {
@@ -28,8 +31,7 @@ router.beforeEach((to, from, next) => {
 })
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
-  template: '<App/>',
-  components: { App },
-});
+  store,
+  render: h => h(App)
+}).$mount('#app')
