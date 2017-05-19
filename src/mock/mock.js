@@ -3,8 +3,10 @@ import MockAdapter from 'axios-mock-adapter';
 import { LoginUsers, Users } from './data/login';
 
 let _Users = Users;
+let normalAxios = axios.create();
 export default {
   bootstrap() {
+
     let mock = new MockAdapter(axios);
     // mock success request
     mock.onGet('/success').reply(200, {
@@ -54,5 +56,36 @@ export default {
         }, 1000);
       });
     });
+
+    //每日一文
+    mock.onGet('/getArticle/today').reply(config => {
+      return new Promise((resolve, reject) => {
+        normalAxios.get('https://interface.meiriyiwen.com/article/today?dev=1')
+        .then(function(response) {
+          setTimeout(() => {
+            resolve([200, {
+              article: response.data.data
+            }]);
+          }, 500);
+        });
+
+      });
+    });
+    //随机文章
+    mock.onGet('/getArticle/random').reply(config => {
+      return new Promise((resolve, reject) => {
+        normalAxios.get('https://interface.meiriyiwen.com/article/random?dev=1')
+        .then(function(response) {
+          setTimeout(() => {
+            resolve([200, {
+              article: response.data.data
+            }]);
+          }, 500);
+        });
+
+      });
+    });
+
+
   }
 }
