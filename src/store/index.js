@@ -7,7 +7,7 @@ import * as getters from './getters'
 import count from './modules/count'
 
 Vue.use(Vuex)
-
+const debug = process.env.NODE_ENV !== 'production'
 const logger = createLogger({
   collapsed: false,
   filter (mutation, stateBefore, stateAfter) {
@@ -26,5 +26,5 @@ export default new Vuex.Store({
   },
   actions,
   mutations,
-  plugins: [logger]
+  plugins: debug ? [logger] : []
 })
