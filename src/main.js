@@ -11,14 +11,16 @@ import 'font-awesome/css/font-awesome.min.css'
 import router from './router';
 import Mock from './mock'
 
-let useMock = location.search.indexOf('mock') > -1
-useMock && Mock.bootstrap();
+
 
 Vue.config.productionTip = false;
-
 Vue.use(Vuex)
 Vue.use(ElementUI)
+let useMock = location.search.indexOf('mock') > -1
+let mockPath = ['/login', '/table']
+useMock && Mock.bootstrap();
 router.beforeEach((to, from, next) => {
+
   if (to.path == '/login') {
     sessionStorage.removeItem('user');
   }

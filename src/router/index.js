@@ -5,6 +5,7 @@ import Hello from '@/components/Hello';
 import Home from '@/pages/Home';
 import Table from '@/pages/components/Table';
 import Vuex from '@/pages/collection/Vuex';
+import OneArticle from '@/pages/collection/OneArticle';
 
 Vue.use(Router);
 export default new Router({
@@ -41,9 +42,9 @@ export default new Router({
           component: Vuex,
           name: 'Vuex'
         }, {
-          path: '/form1',
-          component: Hello,
-          name: 'Form'
+          path: '/onearticle',
+          component: OneArticle,
+          name: 'OneArticle'
         }
       ]
     }, {
