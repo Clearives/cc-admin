@@ -57,7 +57,7 @@
                 });
               } else {
                 sessionStorage.setItem('user', JSON.stringify(user));
-                _this.$router.push({ path: '/table' });
+                _this.$router.push({ path: '/onearticle' });
               }
             })
 
