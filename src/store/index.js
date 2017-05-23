@@ -5,6 +5,7 @@ import {state, mutations} from './mutations'
 import{actions} from './actions'
 import * as getters from './getters'
 import count from './modules/count'
+import article from './modules/article'
 
 Vue.use(Vuex)
 const debug = process.env.NODE_ENV !== 'production'
@@ -22,7 +23,8 @@ export default new Vuex.Store({
   state,
   getters,
   modules: {
-    count
+    count,
+    article
   },
   actions,
   mutations,
