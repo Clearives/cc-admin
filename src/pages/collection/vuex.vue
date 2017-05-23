@@ -11,6 +11,17 @@
     <hr/>
     <h1>todo 测试</h1>
     <TodoMvc></TodoMvc>
+    <br/>
+    <br/>
+    <br/>
+    <hr/>
+    <h1>action测试</h1>
+    <div class="article" v-loading="loading">
+      <el-button @click="getArticleAsync">获取随机文章</el-button>
+      <h2>{{article.title}}</h2>
+      <p class="article_author"><span>{{article.author}}</span></p>
+      <div class="article_text" v-html="article.content"></div>
+    </div>
   </div>
 </template>
 
@@ -22,6 +33,8 @@ export default {
   computed: {
     ...mapGetters([
       'getCount',
+      'article',
+      'loading'
       // ...
     ])
   },
@@ -29,7 +42,8 @@ export default {
     ...mapActions([
       'increment',
       'decrement',
-      'incrementAsync'
+      'incrementAsync',
+      'getArticleAsync'
     ])
   }
 }
