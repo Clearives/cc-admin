@@ -1,33 +1,44 @@
 <template>
   <el-col :span="24" class="breadcrumb-container">
     <el-breadcrumb separator="/" class="breadcrumb-inner">
-      <el-breadcrumb-item v-for="item in $route.matched" :key="item.path">
-        {{ item.name }}
-      </el-breadcrumb-item>
+      <el-breadcrumb-item v-for="(item,index)  in crumbList" :key="item.path">
+      <router-link v-if='item.redirect==="noredirect"||index==crumbList.length-1' to="" class="no-redirect">{{item.name}}</router-link>
+      <router-link v-else :to="item.path">{{item.name}}</router-link>
+    </el-breadcrumb-item>
     </el-breadcrumb>
   </el-col>
 </template>
 
 <script>
 export default {
-  name: 'Navbar',
+  created() {
+    this.getBreadcrumb()
+  },
   data() {
     return {
-      ccName: 'Cc-Admin',
+      crumbList: null
     }
   },
-  computed: {
-
-  },
   methods: {
-
+    getBreadcrumb() {
+      let matched = this.$route.matched.filter(item => item.name);
+      const first = matched[0];
+      if (first && (first.name !== 'Home' || first.path !== '')) {
+        matched = [{ name: 'Home', path: '/' }].concat(matched)
+      }
+      this.crumbList = matched;
+    }
   },
-  mounted() {
-
+  watch: {
+    $route() {
+      this.getBreadcrumb();
+    }
   }
 }
 </script>
 
-<style lang="less">
-
+<style lang="less" scoped>
+  a {
+    text-decoration: none;
+  }
 </style>
