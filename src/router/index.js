@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/pages/Login';
 import Hello from '@/components/Hello';
-import Home from '@/pages/Home';
+import Home from '@/pages/layout/Home';
 import Table from '@/pages/components/Table';
 import Vuex from '@/pages/collection/Vuex';
 import OneArticle from '@/pages/collection/OneArticle';
