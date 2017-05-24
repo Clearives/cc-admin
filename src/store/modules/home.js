@@ -6,10 +6,10 @@ const app = {
   },
   mutations: {
     TOGGLE_SIDEBAR: state => {
-      if (state.sidebar.opened) {
-        sessionStorage.setItem('sidebarStatus', 1);
-      } else {
+      if (state.sidebar.collapsed) {
         sessionStorage.setItem('sidebarStatus', 0);
+      } else {
+        sessionStorage.setItem('sidebarStatus', 1);
       }
       state.sidebar.collapsed = !state.sidebar.collapsed;
     }
