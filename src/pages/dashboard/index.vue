@@ -8,6 +8,7 @@
     </div>
     <div>
       <img class='gif' :src="gif" >
+      <img class='gif rotate' :src="gif" >
     </div>
   </div>
 </template>
@@ -39,6 +40,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+  @import "../../assets/less/mixin";
   li {
     height: 36px;
     line-height: 36px;
@@ -53,5 +55,8 @@ export default {
   .gif {
     margin-left: 300px;
     margin-top: 100px;
+    &.rotate {
+      .rotate(180deg)
+    }
   }
 </style>
