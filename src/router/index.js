@@ -4,6 +4,7 @@ import Login from '@/pages/Login';
 import Hello from '@/components/Hello';
 import Home from '@/pages/layout/Home';
 import Table from '@/pages/components/Table';
+import Dashboard from '@/pages/dashboard';
 import Vuex from '@/pages/collection/Vuex';
 import OneArticle from '@/pages/collection/OneArticle';
 
@@ -18,47 +19,57 @@ export default new Router({
     }, {
       path: '/',
       component: Home,
+      redirect: '/dashboard',
+      name: 'Home',
+      hidden: true,
+      children: [{ path: 'dashboard', component: Dashboard }]
+    }, {
+      path: '/component',
+      component: Home,
       name: 'Component',
+      redirect: '/component/table',
       iconCls: 'el-icon-message',
       children: [
         {
-          path: '/table',
+          path: '/component/table',
           component: Table,
           name: 'Table'
         }, {
-          path: '/form',
+          path: '/component/form',
           component: Hello,
           name: 'Form'
         }
       ]
     }, {
-      path: '/',
+      path: '/collection',
       component: Home,
       name: 'Collection',
+      redirect: '/collection/vuex',
       iconCls: 'el-icon-star-on',
       children: [
         {
-          path: '/vuex',
+          path: '/collection/vuex',
           component: Vuex,
           name: 'Vuex'
         }, {
-          path: '/onearticle',
+          path: '/collection/onearticle',
           component: OneArticle,
           name: 'OneArticle'
         }
       ]
     }, {
-      path: '/',
+      path: '/setting',
       component: Home,
       name: 'Setting',
+      redirect: '/setting/table2',
       iconCls: 'el-icon-setting',
       children: [
         {
-          path: '/table2',
+          path: '/setting/table2',
           component: Hello,
           name: 'Table'
         }, {
-          path: '/form2',
+          path: '/setting/form2',
           component: Hello,
           name: 'Form'
         }
