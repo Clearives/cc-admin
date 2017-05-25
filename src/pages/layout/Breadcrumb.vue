@@ -38,7 +38,24 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  a {
-    text-decoration: none;
+  .breadcrumb-container {
+      border-bottom: 1px solid #eaeefb;
+      position: fixed;
+      z-index: 2;
+      background: #fff;
+      .title {
+          width: 200px;
+          float: left;
+          color: #475669;
+      }
+      .breadcrumb-inner {
+          float: left;
+          height: 40px;
+          line-height: 40px;
+      }
+      a {
+        text-decoration: none;
+      }
   }
+
 </style>

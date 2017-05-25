@@ -26,6 +26,10 @@ export default {
 }
 </script>
 
-<style lang="less">
-
+<style lang="less" scoped>
+  .content-wrapper {
+      background-color: #fff;
+      box-sizing: border-box;
+      margin-top: 40px;
+  }
 </style>

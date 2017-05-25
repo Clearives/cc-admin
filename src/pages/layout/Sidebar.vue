@@ -66,7 +66,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
   aside {
       flex: 0 0 230px;
       width: 230px;
@@ -95,27 +95,5 @@ export default {
   .menu-expanded {
       flex: 0 0 230px;
       width: 230px;
-  }
-  .content-container {
-      flex: 1;
-      overflow-y: scroll;
-      padding: 20px;
-      .breadcrumb-container {
-          padding-bottom: 14px;
-          border-bottom: 1px solid #eaeefb;
-          margin-bottom: 14px;
-          .title {
-              width: 200px;
-              float: left;
-              color: #475669;
-          }
-          .breadcrumb-inner {
-              float: left;
-          }
-      }
-      .content-wrapper {
-          background-color: #fff;
-          box-sizing: border-box;
-      }
   }
 </style>

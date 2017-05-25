@@ -54,6 +54,11 @@ export default {
         top: 60px;
         bottom: 0;
         overflow: hidden;
+        .content-container {
+            flex: 1;
+            overflow-y: scroll;
+            padding: 0 20px 20px 20px;
+        }
     }
 }
 </style>
