@@ -7,6 +7,7 @@ import Table from '@/pages/components/Table';
 import Dashboard from '@/pages/dashboard';
 import Vuex from '@/pages/collection/Vuex';
 import OneArticle from '@/pages/collection/OneArticle';
+import Communication from '@/pages/collection/Communication';
 
 Vue.use(Router);
 export default new Router({
@@ -55,6 +56,10 @@ export default new Router({
           path: '/collection/onearticle',
           component: OneArticle,
           name: 'OneArticle'
+        }, {
+          path: '/collection/communication',
+          component: Communication,
+          name: 'Communication'
         }
       ]
     }, {
