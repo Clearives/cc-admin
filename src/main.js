@@ -10,9 +10,10 @@ import 'element-ui/lib/theme-default/index.css';
 import 'font-awesome/css/font-awesome.min.css'
 import router from './router';
 import Mock from './mock'
+import { createUniqueString } from './assets/js/utils'
 
 
-
+console.log(createUniqueString())
 Vue.config.productionTip = false;
 Vue.use(Vuex)
 Vue.use(ElementUI)
