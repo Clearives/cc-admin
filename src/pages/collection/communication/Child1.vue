@@ -11,7 +11,6 @@
 
 <script>
 import ebus from './ebus'
-console.log(ebus)
 export default {
   name: 'Child1',
   props: {
