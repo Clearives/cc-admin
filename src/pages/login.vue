@@ -17,6 +17,7 @@
 
 <script>
   import { reqLogin } from '../api/api';
+  import { getUrlParams } from '../assets/js/utils'
 
   export default {
     data() {
@@ -38,10 +39,10 @@
       };
     },
     methods: {
-      handleReset() {
+      handleReset: function() {
         this.$refs.ruleForm.resetFields();
       },
-      handleSubmit(ev) {
+      handleSubmit: function(ev) {
         var _this = this;
         _this.$refs.ruleForm.validate((valid) => {
           if (valid) {
@@ -57,7 +58,15 @@
                 });
               } else {
                 sessionStorage.setItem('user', JSON.stringify(user));
-                _this.$router.push({ path: '/' });
+                let backUrl = sessionStorage.getItem('backUrl')
+                if (backUrl) {
+                  location.href = backUrl;
+                  sessionStorage.removeItem('backUrl')
+                } else {
+                  _this.$router.push({ path: '/' });
+                }
+
+
               }
             })
 
