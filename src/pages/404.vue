@@ -7,15 +7,15 @@
          <div class="">
             <div class="float-left">
                 <img src="../assets/0.gif">
-                <div class="alert"> 卧槽！页面不见了！ </div>
+                <div class="alert"> 卧槽！页面不见了！</div>
             </div>
             <div class="float-right">
                <img src="../assets/ds-2.png" width="260">
             </div>
           </div>
           <div class="padding-big">
-               <a href="" class="button bg-yellow">返回首页</a>
-               <a href="" class="button">保证不打死管理员</a>
+               <el-button @click="back">返回</el-button>
+               <el-button @click="back">保证不打死管理员</el-button>
           </div>
       </div>
    </div>
@@ -25,6 +25,15 @@
 
 <script>
 export default {
+  methods: {
+    back: function() {
+      if (this.$route.query.noGoBack) {
+        this.$router.push({ path: '#/dashboard' });
+      } else {
+        this.$router.go(-1);
+      }
+    }
+  }
 }
 </script>
 
@@ -47,17 +56,6 @@ export default {
       &:hover {
         color: #20a0ff;
       }
-    }
-    .button {
-      border: solid 1px #ddd;
-      background: transparent;
-      border-radius: 4px;
-      font-size: 14px;
-      padding: 6px 15px;
-      margin: 0;
-      display: inline-block;
-      line-height: 20px;
-      transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1) 0s;
     }
     .alert {
       font-size: 14px;
