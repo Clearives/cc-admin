@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/pages/Login';
+import E404 from '@/pages/404';
 import User from '@/pages/profile/User';
 import Hello from '@/components/Hello';
 import Home from '@/pages/layout/Home';
@@ -16,6 +17,11 @@ export default new Router({
     {
       path: '/login',
       component: Login,
+      name: '',
+      hidden: true
+    }, {
+      path: '/404',
+      component: E404,
       name: '',
       hidden: true
     }, {
@@ -96,6 +102,6 @@ export default new Router({
           name: 'Form'
         }
       ]
-    }
+    }, { path: '*', redirect: '/404', hidden: true }
   ]
 });
