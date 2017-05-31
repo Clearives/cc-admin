@@ -19,7 +19,8 @@ Vue.use(Vuex)
 Vue.use(ElementUI)
 let useMock = location.search.indexOf('mock') > -1
 let mockPath = ['/login', '/table']
-useMock && Mock.bootstrap();
+// useMock && Mock.bootstrap();
+Mock.bootstrap();
 router.beforeEach((to, from, next) => {
 
   if (to.path == '/login') {
