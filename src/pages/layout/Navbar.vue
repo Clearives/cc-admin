@@ -9,7 +9,7 @@
       </div>
     </el-col>
     <el-col :span="4" class="userinfo">
-      <a class="userlink" target="_blank" href="https://github.com/clearives">
+      <a class="userlink" :href="'#/user/' + ccUserName">
         <span class="el-dropdown-link userinfo-inner">
           <img :src="this.ccUserAvatar" /> {{ccUserName}}
         </span>
