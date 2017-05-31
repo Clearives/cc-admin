@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/pages/Login';
+import User from '@/pages/profile/User';
 import Hello from '@/components/Hello';
 import Home from '@/pages/layout/Home';
 import Table from '@/pages/components/Table';
@@ -18,12 +19,28 @@ export default new Router({
       name: '',
       hidden: true
     }, {
+      path: '/user',
+      component: Home,
+      name: 'User',
+      hidden: true,
+      children: [
+        {
+          path: '/user/:userId',
+          component: User,
+        }
+      ]
+    }, {
       path: '/',
       component: Home,
       redirect: '/dashboard',
       name: 'Home',
       hidden: true,
-      children: [{ path: 'dashboard', component: Dashboard }]
+      children: [
+        {
+          path: 'dashboard',
+          component: Dashboard
+        }
+      ]
     }, {
       path: '/component',
       component: Home,
