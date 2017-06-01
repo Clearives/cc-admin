@@ -30,6 +30,6 @@ export default {
   .content-wrapper {
       background-color: #fff;
       box-sizing: border-box;
-      margin-top: 40px;
+      margin-top: 60px;
   }
 </style>

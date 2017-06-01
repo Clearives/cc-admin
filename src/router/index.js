@@ -10,6 +10,7 @@ import Dashboard from '@/pages/dashboard';
 import Vuex from '@/pages/collection/Vuex';
 import OneArticle from '@/pages/collection/OneArticle';
 import Communication from '@/pages/collection/Communication';
+import Html2str from '@/pages/tools/Html2str';
 
 Vue.use(Router);
 export default new Router({
@@ -83,6 +84,19 @@ export default new Router({
           path: '/collection/communication',
           component: Communication,
           name: 'Communication'
+        }
+      ]
+    }, {
+      path: '/tools',
+      component: Home,
+      name: 'Tools',
+      redirect: '/tools/html2str',
+      iconCls: 'fa fa-wrench mr10',
+      children: [
+        {
+          path: '/tools/html2str',
+          component: Html2str,
+          name: 'Html2str'
         }
       ]
     }, {
