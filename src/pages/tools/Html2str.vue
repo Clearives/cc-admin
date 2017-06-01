@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="tools-wrapper">
     <h2>Html转字符串工具</h2>
     <ul class="tips">
       <li>转化为单引号字符串时需要将html里的单引号转化为双引号</li>
@@ -18,6 +18,7 @@
       <el-button @click="handleReset">重置</el-button>
     </div>
     <el-input
+      readonly
       type="textarea"
       :autosize="{ minRows: 4, maxRows: 20}"
       placeholder="这里将显示转化之后的字符串"
@@ -83,14 +84,14 @@ export default {
 </script>
 
 <style lang="less">
-  .wrapper {
+  .tools-wrapper {
     .tips {
       margin-bottom: 20px;
     }
     .el-textarea {
       width: 70%;
       textarea {
-        color: #ff4949!important;
+        color: #ff4949;
       }
     }
     .btn-wrap {
