@@ -12,31 +12,5 @@ export default {
 };
 </script>
 
-<style>
-body {
-	margin: 0px;
-	padding: 0px;
-	font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
-	font-size: 14px;
-	-webkit-font-smoothing: antialiased;
-}
-#app {
-  position: absolute;
-	top: 0px;
-	bottom: 0px;
-  left: 0px;
-	width: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.fade-enter-active,
-.fade-leave-active {
-	transition: all .2s ease;
-}
-.fade-enter,
-.fade-leave-active {
-	opacity: 0;
-}
-.clearfix:after {content:".";display:block;height:0;clear:both;visibility: hidden}
-.clearfix {*+height: 1%;}
+<style lang="less" src="./assets/less/reset.less">
 </style>
