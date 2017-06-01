@@ -52,7 +52,7 @@ export default new Router({
       component: Home,
       name: 'Component',
       redirect: '/component/table',
-      iconCls: 'el-icon-message',
+      iconCls: 'fa fa-database mr10',
       children: [
         {
           path: '/component/table',
@@ -69,7 +69,7 @@ export default new Router({
       component: Home,
       name: 'Collection',
       redirect: '/collection/vuex',
-      iconCls: 'el-icon-star-on',
+      iconCls: 'fa fa-book mr10',
       children: [
         {
           path: '/collection/vuex',
@@ -90,7 +90,7 @@ export default new Router({
       component: Home,
       name: 'Setting',
       redirect: '/setting/table2',
-      iconCls: 'el-icon-setting',
+      iconCls: 'fa fa-cog mr10',
       children: [
         {
           path: '/setting/table2',
