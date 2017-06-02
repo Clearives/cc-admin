@@ -7,6 +7,7 @@ import Hello from '@/components/Hello';
 import Home from '@/pages/layout/Home';
 import Table from '@/pages/components/Table';
 import Dashboard from '@/pages/dashboard';
+import Lifecycle from '@/pages/collection/Lifecycle';
 import Vuex from '@/pages/collection/Vuex';
 import OneArticle from '@/pages/collection/OneArticle';
 import Communication from '@/pages/collection/Communication';
@@ -73,6 +74,10 @@ export default new Router({
       iconCls: 'fa fa-book mr10',
       children: [
         {
+          path: '/collection/lifecycle',
+          component: Lifecycle,
+          name: 'Lifecycle'
+        }, {
           path: '/collection/vuex',
           component: Vuex,
           name: 'Vuex'
