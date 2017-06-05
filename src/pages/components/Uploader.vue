@@ -16,13 +16,16 @@
 
 <script>
 import config from '../../api/qiniu-config'
+import { getToken } from '../../api/token.js'
+let uptoken = getToken()
+
 export default {
   name: 'Uploader',
   data() {
     return {
       imageUrl: '',
       form: {
-        token: config.uptoken,
+        token: uptoken,
         key: null
       }
     }
