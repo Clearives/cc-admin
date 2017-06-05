@@ -6,6 +6,7 @@ import User from '@/pages/profile/User';
 import Hello from '@/components/Hello';
 import Home from '@/pages/layout/Home';
 import Table from '@/pages/components/Table';
+import Uploader from '@/pages/components/Uploader';
 import Dashboard from '@/pages/dashboard';
 import Lifecycle from '@/pages/collection/Lifecycle';
 import Vuex from '@/pages/collection/Vuex';
@@ -61,9 +62,9 @@ export default new Router({
           component: Table,
           name: 'Table'
         }, {
-          path: '/component/form',
-          component: Hello,
-          name: 'Form'
+          path: '/component/uploader',
+          component: Uploader,
+          name: 'Uploader'
         }
       ]
     }, {
