@@ -16,7 +16,8 @@
 
 <script>
 import config from '../../api/qiniu-config'
-import { getToken } from '../../api/api.js';
+import { getToken } from '../../api/api.js'
+import { createUniqueString } from '../../assets/js/utils'
 
 export default {
   name: 'Uploader',
@@ -31,10 +32,10 @@ export default {
   },
   methods: {
     handleAvatarSuccess(res, file) {
-      this.imageUrl = config.domain + '/' + file.name;
+      this.imageUrl = config.domain + '/' + this.form.key;
     },
     beforeAvatarUpload(file) {
-      this.form.key = file.name
+      this.form.key = createUniqueString()
       const isJPG = file.type === 'image/jpeg';
       const isLt2M = file.size / 1024 / 1024 < 2;
 
