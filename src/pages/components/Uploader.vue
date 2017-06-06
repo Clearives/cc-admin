@@ -16,8 +16,7 @@
 
 <script>
 import config from '../../api/qiniu-config'
-import { getToken } from '../../api/token.js'
-let uptoken = getToken()
+import { getToken } from '../../api/api.js';
 
 export default {
   name: 'Uploader',
@@ -25,7 +24,7 @@ export default {
     return {
       imageUrl: '',
       form: {
-        token: uptoken,
+        token: '',
         key: null
       }
     }
@@ -47,6 +46,11 @@ export default {
       }
       return isLt2M;
     }
+  },
+  created() {
+    getToken().then((res) => {
+      this.form.token = res.data.token;
+    });
   }
 }
 </script>
