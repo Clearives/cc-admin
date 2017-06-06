@@ -6,3 +6,4 @@ export const reqLogin = params => { return axios.post(`${base}/login`, params).t
 export const getUserList = params => { return axios.get(`${base}/user/list`, { params: params }); };
 export const getArticle = params => { return axios.get(`${base}/getArticle/today`) };
 export const getArticle2 = params => { return axios.get(`${base}/getArticle/random`) };
+export const getToken = params => { return axios.get(`${base}/getToken`) };

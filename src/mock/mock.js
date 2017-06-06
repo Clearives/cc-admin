@@ -1,6 +1,7 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { LoginUsers, Users } from './data/login';
+import { getToken } from '../api/token.js'
 
 let _Users = Users;
 let normalAxios = axios.create();
@@ -83,6 +84,18 @@ export default {
           }, 500);
         });
 
+      });
+    });
+
+    //token
+    mock.onGet('/getToken').reply(config => {
+      let token = getToken()
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve([200, {
+            token: token
+          }]);
+        }, 1000);
       });
     });
 

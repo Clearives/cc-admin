@@ -1,17 +1,10 @@
-var CryptoJS = require('crypto-js');
+import CryptoJS from 'crypto-js'
 export const getToken = (accessKey, secretKey, putPolicy) => {
   putPolicy = {
     scope: 'cc-admin-bucket',
-    deadline:new Date().getTime() + 3600,
-    returnBody: `{
-      "name": $(fname),
-      "size": $(fsize),
-      "w": $(imageInfo.width),
-      "h": $(imageInfo.height),
-      "hash": $(etag),
-    }`
+    deadline:new Date().getTime() + 3600
   }
-  accessKey = '' //你的accessKey
+  accessKey = 'ctW4bSXWrUuEa_ztjW6bCG9GmpuWA0m-3L7uc83r' //你的accessKey
   secretKey = '' //你的secretKey
   let put_policy = JSON.stringify(putPolicy);
 
