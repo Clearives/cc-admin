@@ -20,6 +20,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+
 export default {
   name: 'Navbar',
   data() {
@@ -27,7 +28,7 @@ export default {
       ccName: 'Cc-Admin',
       ccUserName: '',
       ccUserAvatar: '',
-    }
+    };
   },
   computed: {
     ...mapGetters([
@@ -36,18 +37,18 @@ export default {
   },
   methods: {
     collapse() {
-      this.$store.dispatch('ToggleSideBar')
+      this.$store.dispatch('ToggleSideBar');
     }
   },
   mounted() {
-    var user = sessionStorage.getItem('user');
+    let user = sessionStorage.getItem('user');
     if (user) {
       user = JSON.parse(user);
       this.ccUserName = user.username || '';
       this.ccUserAvatar = user.avatar || '';
     }
   }
-}
+};
 </script>
 
 <style lang="less">

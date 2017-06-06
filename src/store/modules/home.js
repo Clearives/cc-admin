@@ -5,7 +5,7 @@ const app = {
     }
   },
   mutations: {
-    TOGGLE_SIDEBAR: state => {
+    TOGGLE_SIDEBAR: (state) => {
       if (state.sidebar.collapsed) {
         sessionStorage.setItem('sidebarStatus', 0);
       } else {
@@ -16,7 +16,7 @@ const app = {
   },
   actions: {
     ToggleSideBar: ({ commit }) => {
-      commit('TOGGLE_SIDEBAR')
+      commit('TOGGLE_SIDEBAR');
     }
   }
 };

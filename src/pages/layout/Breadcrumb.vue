@@ -12,19 +12,19 @@
 <script>
 export default {
   created() {
-    this.getBreadcrumb()
+    this.getBreadcrumb();
   },
   data() {
     return {
       crumbList: null
-    }
+    };
   },
   methods: {
     getBreadcrumb() {
       let matched = this.$route.matched.filter(item => item.name);
       const first = matched[0];
       if (first && (first.name !== 'Home' || first.path !== '')) {
-        matched = [{ name: 'Home', path: '/' }].concat(matched)
+        matched = [{ name: 'Home', path: '/' }].concat(matched);
       }
       this.crumbList = matched;
     }
@@ -34,7 +34,7 @@ export default {
       this.getBreadcrumb();
     }
   }
-}
+};
 </script>
 
 <style lang="less" scoped>

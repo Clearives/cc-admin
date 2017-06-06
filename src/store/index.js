@@ -1,24 +1,24 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import createLogger from 'vuex/dist/logger'
-import {state, mutations} from './mutations'
-import{actions} from './actions'
-import getters from './getters'
-import home from './modules/home'
-import count from './modules/count'
-import article from './modules/article'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import createLogger from 'vuex/dist/logger';
+import { state, mutations } from './mutations';
+import { actions } from './actions';
+import getters from './getters';
+import home from './modules/home';
+import count from './modules/count';
+import article from './modules/article';
 
-Vue.use(Vuex)
-const debug = process.env.NODE_ENV !== 'production'
+Vue.use(Vuex);
+const debug = process.env.NODE_ENV !== 'production';
 const logger = createLogger({
   collapsed: false,
-  filter (mutation, stateBefore, stateAfter) {
-    return mutation.type !== "aBlacklistedMutation"
+  filter (mutation) {
+    return mutation.type !== 'aBlacklistedMutation';
   },
   mutationTransformer (mutation) {
-    return mutation.type
+    return mutation.type;
   }
-})
+});
 
 export default new Vuex.Store({
   state,
@@ -31,4 +31,4 @@ export default new Vuex.Store({
   actions,
   mutations,
   plugins: debug ? [logger] : []
-})
+});

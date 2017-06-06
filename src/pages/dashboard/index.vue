@@ -24,28 +24,29 @@
 
 <script>
 import gif from '../../assets/0.gif';
+
 export default {
   name: 'dashboard-index',
   data() {
     return {
       appInfo: {},
-      gif: gif + '?' + +new Date(),
-    }
+      gif: `${gif}?${+new Date()}`,
+    };
   },
   methods: {
     getInfo: () => {
-      let appInfo = {}
-      appInfo.appName = navigator.appName; //浏览器的正式名称
-      appInfo.appVersion = navigator.appVersion; //浏览器的版本号
+      let appInfo = {};
+      appInfo.appName = navigator.appName; // 浏览器的正式名称
+      appInfo.appVersion = navigator.appVersion; // 浏览器的版本号
       appInfo.platform = navigator.platform; // 浏览器正在运行的操作系统平台，包括Win16(windows3.x)
-      appInfo.userAgent = navigator.userAgent; //包含以下属性中所有或一部分的字符串：appCodeName,appName,appVersion,language,platform
-      return appInfo
+      appInfo.userAgent = navigator.userAgent;
+      return appInfo;
     }
   },
   mounted() {
-    this.appInfo = this.getInfo()
+    this.appInfo = this.getInfo();
   }
-}
+};
 </script>
 
 <style lang="less" scoped>

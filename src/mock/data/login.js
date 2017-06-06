@@ -1,4 +1,5 @@
 import Mock from 'mockjs';
+
 const LoginUsers = [
   {
     id: 1,

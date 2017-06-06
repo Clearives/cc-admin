@@ -6,13 +6,14 @@
 </template>
 
 <script>
-import Parent from './communication/Parent.vue'
+import Parent from './communication/Parent';
+
 export default {
   name: 'Communication',
   components: {
-   Parent
- },
-}
+    Parent
+  },
+};
 </script>
 
 <style lang="less" scoped>

@@ -14,8 +14,9 @@
 </template>
 
 <script>
-import Child1 from './Child1'
-import Child2 from './Child2'
+import Child1 from './Child1';
+import Child2 from './Child2';
+
 export default {
   name: 'Parent',
   data() {
@@ -23,21 +24,21 @@ export default {
       msg: 'msg',
       msg1: 'msg1',
       msg2: 'msg2'
-    }
+    };
   },
   components: {
     Child1,
     Child2
- },
- methods: {
-   getChild1: function(msg) {
-     this.msg1 = msg
-   },
-   getChild2: function(msg) {
-     this.msg2 = msg
-   }
- }
-}
+  },
+  methods: {
+    getChild1: function(msg) {
+      this.msg1 = msg;
+    },
+    getChild2: function(msg) {
+      this.msg2 = msg;
+    }
+  }
+};
 </script>
 
 <style lang="less">

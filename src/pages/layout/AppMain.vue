@@ -12,7 +12,7 @@ export default {
   data() {
     return {
 
-    }
+    };
   },
   computed: {
 
@@ -23,7 +23,7 @@ export default {
   mounted() {
 
   }
-}
+};
 </script>
 
 <style lang="less" scoped>

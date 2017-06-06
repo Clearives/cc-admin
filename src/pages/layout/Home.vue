@@ -15,7 +15,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { Navbar, Sidebar, Breadcrumb, AppMain} from '@/pages/layout'
+import { Navbar, Sidebar, Breadcrumb, AppMain } from '@/pages/layout';
+
 export default {
   components: {
     Navbar,
@@ -26,7 +27,7 @@ export default {
   data() {
     return {
 
-    }
+    };
   },
   computed: {
     ...mapGetters([
@@ -39,7 +40,7 @@ export default {
   mounted() {
 
   }
-}
+};
 </script>
 
 <style lang="less">

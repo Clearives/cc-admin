@@ -23,12 +23,12 @@ export default {
   data() {
     return {
       userId: ''
-    }
+    };
   },
   created() {
-    this.userId = this.$route.params.userId
+    this.userId = this.$route.params.userId;
   }
-}
+};
 </script>
 
 <style lang="less" scoped>

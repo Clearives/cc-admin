@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import config from '../../api/qiniu-config'
-import { getToken } from '../../api/api.js'
-import { createUniqueString } from '../../assets/js/utils'
+import config from '../../api/qiniu-config';
+import { getToken } from '../../api/api';
+import createUniqueString from '../../assets/js/utils';
 
 export default {
   name: 'Uploader',
@@ -26,19 +26,18 @@ export default {
       imageUrl: '',
       form: {
         token: '',
-        key: null
-      }
-    }
+        key: null,
+      },
+    };
   },
   methods: {
-    handleAvatarSuccess(res, file) {
-      this.imageUrl = config.domain + '/' + this.form.key;
+    handleAvatarSuccess() {
+      this.imageUrl = `${config.domain}/${this.form.key}`;
     },
     beforeAvatarUpload(file) {
-      this.form.key = createUniqueString()
-      const isJPG = file.type === 'image/jpeg';
+      this.form.key = createUniqueString();
+      // const isJPG = file.type === 'image/jpeg';
       const isLt2M = file.size / 1024 / 1024 < 2;
-
       // if (!isJPG) {
       //   this.$message.error('上传头像图片只能是 JPG 格式!');
       // }
@@ -46,14 +45,14 @@ export default {
         this.$message.error('上传图片大小不能超过 2MB!');
       }
       return isLt2M;
-    }
+    },
   },
   created() {
     getToken().then((res) => {
       this.form.token = res.data.token;
     });
-  }
-}
+  },
+};
 </script>
 
 <style lang="less">

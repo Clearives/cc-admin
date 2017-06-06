@@ -35,12 +35,13 @@
 
 <script>
 import { mapGetters } from 'vuex';
+
 export default {
   name: 'Sidebar',
   data() {
     return {
 
-    }
+    };
   },
   computed: {
     ...mapGetters([
@@ -58,12 +59,12 @@ export default {
 
     },
     showMenu(i, status) {
-      this.$refs.menuCollapsed.getElementsByClassName('submenu-hook-' + i)[0].style.display = status ? 'block' : 'none';
+      this.$refs.menuCollapsed.getElementsByClassName(`submenu-hook-${i}`)[0].style.display = status ? 'block' : 'none';
     }
   },
   mounted() {
   }
-}
+};
 </script>
 
 <style lang="less" scoped>

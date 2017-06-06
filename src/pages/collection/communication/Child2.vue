@@ -10,43 +10,44 @@
 </template>
 
 <script>
-import ebus from './ebus'
+import ebus from './ebus';
+
 export default {
   name: 'Child2',
   data() {
     return {
       msgFromChild1: ''
-    }
+    };
   },
   props: {
     childMsg: {
-        type: String,
-        default: ''
+      type: String,
+      default: ''
     },
     childMsg1: {
-        type: String,
-        default: ''
+      type: String,
+      default: ''
     },
     childMsg2: {
-        type: String,
-        default: ''
+      type: String,
+      default: ''
     }
   },
   methods: {
     callOther: function() {
-      this.$emit('getChild2',"I'm Child2 msg");
+      this.$emit('getChild2', "I'm Child2 msg");
     },
     getFromChild1: function() {
-      let _this = this
-      ebus.$on('getChild1Tochild2', function(msg) {
-        _this.msgFromChild1 = msg
-      })
+      let _this = this;
+      ebus.$on('getChild1Tochild2', (msg) => {
+        _this.msgFromChild1 = msg;
+      });
     }
   },
   mounted() {
-    this.getFromChild1()
+    this.getFromChild1();
   }
-}
+};
 </script>
 
 <style lang="less">

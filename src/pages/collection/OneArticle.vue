@@ -14,12 +14,13 @@
 
 <script>
 import { getArticle, getArticle2 } from '../../api/api';
+
 export default {
   data() {
     return {
       article: {},
       loading: false
-    }
+    };
   },
   methods: {
     getArticle: function () {
@@ -42,7 +43,7 @@ export default {
   mounted() {
     this.getArticle();
   }
-}
+};
 </script>
 
 <style lang="less">

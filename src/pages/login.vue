@@ -17,7 +17,6 @@
 
 <script>
   import { reqLogin } from '../api/api';
-  import { getUrlParams } from '../assets/js/utils'
 
   export default {
     data() {
@@ -42,13 +41,16 @@
       handleReset: function() {
         this.$refs.ruleForm.resetFields();
       },
-      handleSubmit: function(ev) {
-        var _this = this;
+      handleSubmit: function() {
+        let _this = this;
         _this.$refs.ruleForm.validate((valid) => {
           if (valid) {
             _this.logining = true;
-            var loginParams = { username: _this.ruleForm.account, password: _this.ruleForm.checkPass };
-            reqLogin(loginParams).then(data => {
+            let loginParams = {
+              username: _this.ruleForm.account,
+              password: _this.ruleForm.checkPass
+            };
+            reqLogin(loginParams).then((data) => {
               _this.logining = false;
               let { msg, code, user } = data;
               if (code !== 200) {
@@ -58,18 +60,15 @@
                 });
               } else {
                 sessionStorage.setItem('user', JSON.stringify(user));
-                let backUrl = sessionStorage.getItem('backUrl')
+                let backUrl = sessionStorage.getItem('backUrl');
                 if (backUrl) {
                   location.href = backUrl;
-                  sessionStorage.removeItem('backUrl')
+                  sessionStorage.removeItem('backUrl');
                 } else {
                   _this.$router.push({ path: '/' });
                 }
-
-
               }
-            })
-
+            });
           } else {
             console.log('error submit!!');
             return false;
@@ -77,7 +76,7 @@
         });
       }
     }
-  }
+  };
 </script>
 
 <style lang="less" scoped>

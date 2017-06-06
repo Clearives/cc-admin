@@ -26,8 +26,9 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import TodoMvc from './todomvc'
+import { mapGetters, mapActions } from 'vuex';
+import TodoMvc from './todomvc';
+
 export default {
   components: { TodoMvc },
   computed: {
@@ -46,7 +47,7 @@ export default {
       'getArticleAsync'
     ])
   }
-}
+};
 </script>
 
 <style lang="less">

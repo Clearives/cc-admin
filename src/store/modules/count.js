@@ -1,39 +1,37 @@
 const state = {
   count: 12
-}
+};
 
 const getters = {
-  getCount: state => {
-      return state.count
-  }
-}
+  getCount: state => state.count
+};
 
 const mutations = {
   increment: state => state.count++,
 
   decrement: state => state.count--,
-}
+};
 
 const actions = {
   increment ({ commit }) {
-    commit('increment')
+    commit('increment');
   },
   decrement ({ commit }) {
-    commit('decrement')
+    commit('decrement');
   },
   incrementAsync ({ commit }) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        commit('increment')
-        resolve()
-      }, 1000)
-    })
+        commit('increment');
+        resolve();
+      }, 1000);
+    });
   }
-}
+};
 
 export default {
   state,
   getters,
   actions,
   mutations
-}
+};

@@ -58,87 +58,86 @@
 
 <script>
 import { getUserList } from '../../api/api';
+
 export default {
-      data() {
-        return {
-          loading: false,
-          editFormVisible: false,
-          editFormRules: {
-  					name: [
-  						{ required: true, message: 'please enter username', trigger: 'blur' }
-  					]
-  				},
-          filters: {
-  					name: ''
-  				},
-          users: [],
-          editForm: {
-            id: 0,
-  					name: '',
-  					sex: -1,
-  					age: 0,
-  					birth: '',
-  					addr: ''
-          },
-        }
+  data() {
+    return {
+      loading: false,
+      editFormVisible: false,
+      editFormRules: {
+        name: [
+          { required: true, message: 'please enter username', trigger: 'blur' },
+        ],
       },
-      methods: {
-        formatSex: function (row, column) {
-  				return row.sex == 1 ? '男' : row.sex == 0 ? '女' : '未知';
-  			},
-        getUser: function () {
-  				let para = {
-  					name: this.filters.name
-  				};
-  				this.loading = true;
-  				getUserList(para).then((res) => {
-  					this.users = res.data.users;
-  					this.loading = false;
-  				});
-  			},
-        handleEdit: function (index, row) {
-  				this.editFormVisible = true;
-  				this.editForm = Object.assign({}, row);
-  			},
-        editSubmit: function (row) {
-          let { id, name, addr, age, birth, sex } = row;
-          this.users.some(u => {
-            if (u.id === id) {
-              u.name = name;
-              u.addr = addr;
-              u.age = age;
-              u.birth = birth;
-              u.sex = sex;
-            }
-          });
-          this.editFormVisible = false;
-        },
-        handleDelete: function (index, row) {
-          let _this = this;
-          _this.$confirm('此操作将删除该行信息, 是否继续?', '删除', {
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
-            type: 'warning'
-          }).then(() => {
-            _this.loading = true;
-            _this.users.splice(index, 1)
-            _this.loading = false;
-            _this.$message({
-              type: 'success',
-              message: '删除成功!'
-            });
-          }).catch(() => {
-            _this.$message({
-              type: 'info',
-              message: '已取消删除'
-            });
-          });
-        }
+      filters: {
+        name: '',
       },
-      mounted() {
-        this.getUser();
-      }
-    }
+      users: [],
+      editForm: {
+        id: 0,
+        name: '',
+        sex: -1,
+        age: 0,
+        birth: '',
+        addr: '',
+      },
+    };
+  },
+  methods: {
+    formatSex(row) {
+      return row.sex === 1 ? '男' : row.sex === 0 ? '女' : '未知';
+    },
+    getUser() {
+      const para = { name: this.filters.name };
+      this.loading = true;
+      getUserList(para).then((res) => {
+        this.users = res.data.users;
+        this.loading = false;
+      });
+    },
+    handleEdit(index, row) {
+      this.editFormVisible = true;
+      this.editForm = Object.assign({}, row);
+    },
+    editSubmit(row) {
+      const { id, name, addr, age, birth, sex } = row;
+      this.users.some((u) => {
+        if (u.id === id) {
+          u.name = name;
+          u.addr = addr;
+          u.age = age;
+          u.birth = birth;
+          u.sex = sex;
+        }
+      });
+      this.editFormVisible = false;
+    },
+    handleDelete(index) {
+      const _this = this;
+      _this.$confirm('此操作将删除该行信息, 是否继续?', '删除', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning',
+      }).then(() => {
+        _this.loading = true;
+        _this.users.splice(index, 1);
+        _this.loading = false;
+        _this.$message({
+          type: 'success',
+          message: '删除成功!',
+        });
+      }).catch(() => {
+        _this.$message({
+          type: 'info',
+          message: '已取消删除',
+        });
+      });
+    },
+  },
+  mounted() {
+    this.getUser();
+  },
+};
 </script>
 
 <style lang="css">

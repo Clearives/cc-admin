@@ -1,13 +1,12 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { LoginUsers, Users } from './data/login';
-import { getToken } from '../api/token.js'
+import getToken from '../api/token';
 
 let _Users = Users;
 let normalAxios = axios.create();
 export default {
   bootstrap() {
-
     let mock = new MockAdapter(axios);
     // mock success request
     mock.onGet('/success').reply(200, {
@@ -19,13 +18,13 @@ export default {
       msg: 'failure'
     });
 
-    //login
-    mock.onPost('/login').reply(config => {
-      let {username, password} = JSON.parse(config.data);
+    // login
+    mock.onPost('/login').reply((config) => {
+      let { username, password } = JSON.parse(config.data);
       return new Promise((resolve, reject) => {
         let user = null;
         setTimeout(() => {
-          let hasUser = LoginUsers.some(u => {
+          let hasUser = LoginUsers.some((u) => {
             if (u.username === username && u.password === password) {
               user = JSON.parse(JSON.stringify(u));
               user.password = undefined;
@@ -42,10 +41,10 @@ export default {
       });
     });
 
-    //table demo
-    mock.onGet('/user/list').reply(config => {
-      let {name} = config.params;
-      let mockUsers = _Users.filter(user => {
+    // table demo
+    mock.onGet('/user/list').reply((config) => {
+      let { name } = config.params;
+      let mockUsers = _Users.filter((user) => {
         if (name && user.name.indexOf(name) == -1) return false;
         return true;
       });
@@ -58,38 +57,32 @@ export default {
       });
     });
 
-    //每日一文
-    mock.onGet('/getArticle/today').reply(config => {
-      return new Promise((resolve, reject) => {
-        normalAxios.get('https://interface.meiriyiwen.com/article/today?dev=1')
-        .then(function(response) {
+    // 每日一文
+    mock.onGet('/getArticle/today').reply(config => new Promise((resolve, reject) => {
+      normalAxios.get('https://interface.meiriyiwen.com/article/today?dev=1')
+        .then((response) => {
           setTimeout(() => {
             resolve([200, {
               article: response.data.data
             }]);
           }, 500);
         });
-
-      });
-    });
-    //随机文章
-    mock.onGet('/getArticle/random').reply(config => {
-      return new Promise((resolve, reject) => {
-        normalAxios.get('https://interface.meiriyiwen.com/article/random?dev=1')
-        .then(function(response) {
+    }));
+    // 随机文章
+    mock.onGet('/getArticle/random').reply(config => new Promise((resolve, reject) => {
+      normalAxios.get('https://interface.meiriyiwen.com/article/random?dev=1')
+        .then((response) => {
           setTimeout(() => {
             resolve([200, {
               article: response.data.data
             }]);
           }, 500);
         });
+    }));
 
-      });
-    });
-
-    //token
-    mock.onGet('/getToken').reply(config => {
-      let token = getToken()
+    // token
+    mock.onGet('/getToken').reply((config) => {
+      let token = getToken();
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve([200, {
@@ -98,7 +91,5 @@ export default {
         }, 1000);
       });
     });
-
-
   }
-}
+};

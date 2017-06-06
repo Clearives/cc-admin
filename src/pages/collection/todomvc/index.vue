@@ -39,14 +39,14 @@
 </template>
 
 <script>
-import Todo from './Todo.vue'
-import { mapMutations } from 'vuex'
+import { mapMutations } from 'vuex';
+import Todo from './Todo';
 
 const filters = {
   all: todos => todos,
   active: todos => todos.filter(todo => !todo.done),
   completed: todos => todos.filter(todo => todo.done)
-}
+};
 
 export default {
   components: { Todo },
@@ -54,29 +54,29 @@ export default {
     return {
       visibility: 'all',
       filters: filters
-    }
+    };
   },
   computed: {
     todos () {
-      return this.$store.state.todos
+      return this.$store.state.todos;
     },
     allChecked () {
-      return this.todos.every(todo => todo.done)
+      return this.todos.every(todo => todo.done);
     },
     filteredTodos () {
-      return filters[this.visibility](this.todos)
+      return filters[this.visibility](this.todos);
     },
     remaining () {
-      return this.todos.filter(todo => !todo.done).length
+      return this.todos.filter(todo => !todo.done).length;
     }
   },
   methods: {
     addTodo (e) {
-      var text = e.target.value
+      let text = e.target.value;
       if (text.trim()) {
-        this.$store.commit('addTodo', { text })
+        this.$store.commit('addTodo', { text });
       }
-      e.target.value = ''
+      e.target.value = '';
     },
     ...mapMutations([
       'toggleAll',
@@ -84,10 +84,10 @@ export default {
     ])
   },
   filters: {
-    pluralize: (n, w) => n === 1 ? w : (w + 's'),
+    pluralize: (n, w) => n === 1 ? w : (`${w}s`),
     capitalize: s => s.charAt(0).toUpperCase() + s.slice(1)
   }
-}
+};
 </script>
 
 <style lang="less" src="./index.less">
