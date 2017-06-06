@@ -1,11 +1,12 @@
 import CryptoJS from 'crypto-js'
+import config from './qiniu-config'
 export const getToken = (accessKey, secretKey, putPolicy) => {
   putPolicy = {
-    scope: 'cc-admin-bucket',
+    scope: config.bucket_name,
     deadline:new Date().getTime() + 3600
   }
-  accessKey = 'ctW4bSXWrUuEa_ztjW6bCG9GmpuWA0m-3L7uc83r' //你的accessKey
-  secretKey = '' //你的secretKey
+  accessKey = config.accessKey
+  secretKey = config.secretKey
   let put_policy = JSON.stringify(putPolicy);
 
   let encoded = urlsafeBase64Encode(put_policy);
