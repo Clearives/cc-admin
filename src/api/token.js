@@ -1,16 +1,15 @@
 import CryptoJS from 'crypto-js';
 import config from './qiniu-config';
 
-let base64ToUrlSafe = function(v) {
-  return v.replace(/\//g, '_').replace(/\+/g, '-');
-};
 
-let urlsafeBase64Encode = function(jsonFlags) {
+export const base64ToUrlSafe = v => v.replace(/\//g, '_').replace(/\+/g, '-');
+
+export const urlsafeBase64Encode = (jsonFlags) => {
   let encoded = new Buffer(jsonFlags).toString('base64');
   return base64ToUrlSafe(encoded);
 };
 
-let hmacSha1 = function(encoded, secretKey) {
+export const hmacSha1 = (encoded, secretKey) => {
   let hash = CryptoJS.HmacSHA1(encoded, secretKey);
   return hash.toString(CryptoJS.enc.Base64);
 };
