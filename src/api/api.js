@@ -7,3 +7,4 @@ export const getUserList = params => axios.get(`${base}/user/list`, { params: pa
 export const getArticle = params => axios.get(`${base}/getArticle/today`);
 export const getArticle2 = params => axios.get(`${base}/getArticle/random`);
 export const getToken = params => axios.get(`${base}/getToken`);
+export const queryHighquality = params => axios.get(`${base}/top/playlist/highquality`);

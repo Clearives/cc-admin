@@ -91,5 +91,18 @@ export default {
         }, 1000);
       });
     });
+
+    // http://120.79.162.149:3001/top/playlist/highquality?limit=30
+
+    mock.onGet('/top/playlist/highquality').reply(config => new Promise((resolve, reject) => {
+      normalAxios.get('http://120.79.162.149:3001/top/playlist/highquality?limit=30')
+        .then((response) => {
+          setTimeout(() => {
+            resolve([200, {
+              playlist: response.data.playlists
+            }]);
+          }, 500);
+        });
+    }));
   }
 };

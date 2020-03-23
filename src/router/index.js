@@ -13,6 +13,7 @@ import Vuex from '@/pages/collection/Vuex';
 import OneArticle from '@/pages/collection/OneArticle';
 import Communication from '@/pages/collection/Communication';
 import Html2str from '@/pages/tools/Html2str';
+import Music from '@/pages/entertainment/music';
 
 Vue.use(Router);
 export default new Router({
@@ -90,6 +91,19 @@ export default new Router({
           path: '/collection/communication',
           component: Communication,
           name: 'Communication'
+        }
+      ]
+    }, {
+      path: '/entertainment',
+      component: Home,
+      name: 'Entertainment',
+      redirect: '/entertainment/music',
+      iconCls: 'fa fa-wrench mr10',
+      children: [
+        {
+          path: '/entertainment/music',
+          component: Music,
+          name: 'Music'
         }
       ]
     }, {
